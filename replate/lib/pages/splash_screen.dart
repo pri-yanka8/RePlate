@@ -6,15 +6,15 @@ class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  void navigateToNextScreen() {
-    print("Navigating to the next screen...");
+  void showSigninPage() {
+    Navigator.pushNamed(context, "/signin");
   }
 
-  void showAboutInfo() {
+  void _showKnowMorePage() {
     print("Showing more info...");
   }
 
@@ -23,13 +23,11 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          // 🎨 Background Design
           CustomPaint(
             size: Size(MediaQuery.of(context).size.width,
                 MediaQuery.of(context).size.height),
             painter: BackgroundPainter(),
           ),
-
           const Align(
             alignment: Alignment(0.2, -0.2), // Fine-tuned positioning
             child: CircleAvatar(
@@ -37,15 +35,13 @@ class _SplashScreenState extends State<SplashScreen> {
               backgroundImage: AssetImage("assets/splash2.jpg"),
             ),
           ),
-
           const Align(
-            alignment: Alignment(0.7, -0.7), // Adjust as per design
+            alignment: Alignment(0.7, -0.7),
             child: CircleAvatar(
               radius: 55,
               backgroundImage: AssetImage("assets/splash1.jpg"),
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
             child: Column(
@@ -82,12 +78,13 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
                 const SizedBox(height: 20),
                 GestureDetector(
-                  onTap: navigateToNextScreen,
+                  onTap: showSigninPage,
                   child: Container(
-                    width: double.infinity, // Full width
+                    width: double.infinity,
+                    height: 63, // Full width
                     padding: const EdgeInsets.symmetric(vertical: 15),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(14),
                       gradient: const LinearGradient(
                         colors: [Color(0xFF0091DA), Color(0xFF3ABDFE)],
                         begin: Alignment.centerLeft,
@@ -98,7 +95,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       child: Text(
                         "JOIN THE FLOCK",
                         style: GoogleFonts.poppins(
-                            fontSize: 19,
+                            fontSize: 21.5,
                             // fontWeight: FontWeight.bold,
                             color: Colors.white,
                             letterSpacing: 2.0),
@@ -108,7 +105,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
                 const SizedBox(height: 20),
                 GestureDetector(
-                  onTap: showAboutInfo,
+                  onTap: _showKnowMorePage,
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
