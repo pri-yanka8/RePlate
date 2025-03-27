@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 
 class KnowmorePage extends StatelessWidget {
   const KnowmorePage({super.key});
@@ -74,6 +75,12 @@ class KnowmorePage extends StatelessWidget {
                       wordSpacing: 6.0,
                       height: 2.0),
                 ),
+                Lottie.asset(
+                  'assets/dog.json',
+                  width: 150,
+                  height: 150,
+                  fit: BoxFit.cover,
+                )
               ],
             ),
           ),

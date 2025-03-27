@@ -95,7 +95,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       child: Text(
                         "JOIN THE FLOCK",
                         style: GoogleFonts.poppins(
-                            fontSize: 21.5,
+                            fontSize: 21,
                             // fontWeight: FontWeight.bold,
                             color: Colors.white,
                             letterSpacing: 2.0),
