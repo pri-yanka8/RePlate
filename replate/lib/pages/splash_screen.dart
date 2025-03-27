@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void _showKnowMorePage() {
-    print("Showing more info...");
+    Navigator.pushNamed(context, "/knowmore");
   }
 
   @override
