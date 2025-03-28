@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:replate/components/backbutton.dart';
 
 class KnowmorePage extends StatelessWidget {
   const KnowmorePage({super.key});
@@ -12,16 +13,7 @@ class KnowmorePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: const Icon(
-            Icons.arrow_back,
-            size: 32,
-            color: Color.fromARGB(184, 0, 0, 0),
-          ),
-        ),
+        leading: const CustomBackButton(),
       ),
       body: Container(
         width: double.infinity,
