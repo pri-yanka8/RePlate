@@ -10,14 +10,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  void showSigninPage() {
-    Navigator.pushNamed(context, "/signin");
-  }
-
-  void _showKnowMorePage() {
-    Navigator.pushNamed(context, "/knowmore");
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,7 +70,9 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
                 const SizedBox(height: 20),
                 GestureDetector(
-                  onTap: showSigninPage,
+                  onTap: () {
+                    Navigator.pushNamed(context, "/signin");
+                  },
                   child: Container(
                     width: double.infinity,
                     height: 63, // Full width
@@ -105,7 +99,9 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
                 const SizedBox(height: 20),
                 GestureDetector(
-                  onTap: _showKnowMorePage,
+                  onTap: () {
+                    Navigator.pushNamed(context, "/knowmore");
+                  },
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
