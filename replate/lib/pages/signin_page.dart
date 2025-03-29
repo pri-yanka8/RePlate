@@ -12,7 +12,7 @@ class _SigninPageState extends State<SigninPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("login page "),
+        title: const Text("Sign page "),
       ),
     );
   }
