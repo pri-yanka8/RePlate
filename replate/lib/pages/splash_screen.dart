@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:replate/components/background_painter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:replate/components/buttons.dart';
+import 'package:replate/components/my_buttons.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
