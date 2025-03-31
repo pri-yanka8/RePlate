@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MyButtons extends StatelessWidget {
-  const MyButtons({super.key, required this.nav, this.text, this.buttonHeight, this.textSize});
+  const MyButtons(
+      {super.key,
+      required this.nav,
+      this.text,
+      this.buttonHeight,
+      this.textSize});
 
   final VoidCallback nav;
   final String? text;

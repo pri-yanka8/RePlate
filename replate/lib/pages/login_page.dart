@@ -43,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
-                "assets/union.png",
+                "assets/union.jpg",
               ),
               fit: BoxFit.cover, // Ensures the image covers the whole screen
             ),

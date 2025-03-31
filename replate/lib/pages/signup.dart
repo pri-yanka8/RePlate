@@ -5,6 +5,7 @@ import 'package:replate/components/my_buttons.dart';
 import 'package:replate/components/custom_textfield.dart';
 import 'package:flutter/services.dart';
 import 'package:replate/components/googface.dart';
+import 'package:replate/utils.dart/validation_helper.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -33,50 +34,16 @@ class _SignupPageState extends State<SignupPage> {
   }
 
   void validateAndSubmit() {
-    print("validate and submit called!!");
     setState(() {
-      phoneError = null;
-      usernameError = null;
-      passwordError = null;
+      phoneError = ValidationHelper.validatePhone(phoneController.text);
+      usernameError =
+          ValidationHelper.validateUsername(newUsernameController.text);
+      passwordError =
+          ValidationHelper.validatePassword(newPasswordController.text);
 
-      String phone = phoneController.text.trim();
-      String username = newUsernameController.text.trim();
-      String password = newPasswordController.text.trim();
-
-      print("Phone: $phone");
-      print("Username: $username");
-      print("Password: $password");
-
-      // Validation
-      if (phone.isEmpty) {
-        phoneError = "Phone number is required.";
-        print("Error: Phone number is empty!");
-      } else if (phone.length != 10) {
-        phoneError = "Phone number must be exactly 10 digits.";
-        print("Error: Phone number is not 10 digits!");
-      }
-
-      if (username.isEmpty) {
-        usernameError = "Username is required.";
-        print("Error: Username is empty!");
-      } else if (username.length < 6) {
-        usernameError = "Username must be at least 6 characters.";
-        print("Error: Username is too short!");
-      }
-
-      if (password.isEmpty) {
-        passwordError = "Password is required.";
-        print("Error: Password is empty!");
-      } else if (password.length < 6) {
-        passwordError = "Password must be at least 6 characters.";
-        print("Error: Password is too short!");
-      }
-
-      // If no errors, proceed
       if (phoneError == null &&
           usernameError == null &&
           passwordError == null) {
-        print("All fields are valid! Proceeding to navigation...");
         showDialog(
           context: context,
           barrierDismissible: false,
@@ -94,7 +61,7 @@ class _SignupPageState extends State<SignupPage> {
                         color: Colors.green, size: 40),
                     const SizedBox(height: 15),
                     Text(
-                      "Hello, $username!",
+                      "Hello, ${newUsernameController.text}!",
                       style: GoogleFonts.inter(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
@@ -117,11 +84,9 @@ class _SignupPageState extends State<SignupPage> {
         );
 
         // Wait for 2 seconds, then navigate to home screen
-        Future.delayed(const Duration(seconds: 2), () {
-          if (context.mounted) {
-            print("Navigating to home screen...");
-            // Ensure context is still valid
-            Navigator.of(context).pop();
+        Future.delayed(const Duration(seconds: 3), () {
+          if (mounted) {
+            Navigator.of(context).pop(); // Close the dialog
             Navigator.pushReplacementNamed(context, '/home');
           }
         });
@@ -143,7 +108,7 @@ class _SignupPageState extends State<SignupPage> {
           width: double.infinity,
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/union.png"),
+              image: AssetImage("assets/union.jpg"),
               fit: BoxFit.cover,
             ),
             gradient: LinearGradient(
