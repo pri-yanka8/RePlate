@@ -28,7 +28,18 @@ Replate is a Flutter-based food redistribution app that bridges the gap between 
 - Flutter – Cross-platform UI
 - Firebase Firestore – Real-time database for donations and user data
 - Firebase Auth – Secure Google sign-in
-- Geolocator – Location-based services
+- Google maps – Location-based services
 - Riverpod – State management
 
+---
+
+🎯 Future Enhancements
+
+📦 Auto-scheduling pickups for bulk food.
+
+📞 Voice-based donation flow (for the elderly).
+
+🔔 Push notifications for donation confirmations and reminders.
+
+📍 Heatmap view of donation activity.
 
